@@ -27,7 +27,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\main\MagicArchive.SourceGenerator\MagicArchive.SourceGenerator.csproj" />
+      <ProjectReference Include="..\..\src\MagicArchive.SourceGenerator\MagicArchive.SourceGenerator.csproj" />
     </ItemGroup>
 
 </Project>
