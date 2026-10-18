@@ -7,6 +7,8 @@
         <ImplicitUsings>true</ImplicitUsings>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         <RootNamespace>MagicArchive</RootNamespace>
+
+        <PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>
 
     <ItemGroup>
@@ -29,6 +31,10 @@
     </ItemGroup>
 
     <ItemGroup>
+      <PackageReference Include="DotNet.ReproducibleBuilds">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
       <PackageReference Include="JetBrains.Annotations" />
       <PackageReference Include="LinkDotNet.StringBuilder" />
       <PackageReference Include="ZLinq" />

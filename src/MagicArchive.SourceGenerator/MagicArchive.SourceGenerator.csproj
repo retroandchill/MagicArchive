@@ -11,9 +11,15 @@
         <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
         <IsRoslynComponent>true</IsRoslynComponent>
         <DefineConstants>MAGIC_ARCHIVE_GENERATOR;$(DefineConstants)</DefineConstants>
+
+        <PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="DotNet.ReproducibleBuilds">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
         <PackageReference Include="Handlebars.Net" GeneratePathProperty="true" PrivateAssets="all" />
         <PackageReference Include="JetBrains.Annotations" />
         <PackageReference Include="Microsoft.CodeAnalysis.Analyzers">
