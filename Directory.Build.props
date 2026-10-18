@@ -2,7 +2,7 @@
     <PropertyGroup>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         
-        <Version>0.1.0</Version>
+        <Version>0.1.0-rc.0</Version>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <RepositoryUrl>https://github.com/retroandchill/MagicArchive</RepositoryUrl>
         <PackageProjectUrl>https://github.com/retroandchill/MagicArchive</PackageProjectUrl>
