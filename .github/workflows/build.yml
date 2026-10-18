@@ -68,6 +68,8 @@ jobs:
     if: github.event_name == 'release'
     runs-on: windows-latest
     needs: [ validate_nuget ]
+    permissions:
+      id-token: write
     steps:
       # Download the NuGet package created in the previous job
       - uses: actions/download-artifact@v4
