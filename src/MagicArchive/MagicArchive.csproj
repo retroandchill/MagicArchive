@@ -12,6 +12,7 @@
         <!-- NuGet -->
         <IsPackable>true</IsPackable>
         <PackageTags>serializer</PackageTags>
+        <Description>High-performance .NET serialization library.</Description>
     </PropertyGroup>
 
     <ItemGroup>
