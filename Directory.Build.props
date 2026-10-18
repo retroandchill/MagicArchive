@@ -2,17 +2,21 @@
     <PropertyGroup>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         
+        <PackageTags>serializer</PackageTags>
+        <Description>High-performance .NET serialization library.</Description>
         <Version>0.1.0-rc.0</Version>
         <Authors>Retro &amp; Chill</Authors>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <RepositoryUrl>https://github.com/retroandchill/MagicArchive</RepositoryUrl>
         <PackageProjectUrl>https://github.com/retroandchill/MagicArchive</PackageProjectUrl>
         <RepositoryType>Git</RepositoryType>
+        <PackageIcon>icon.png</PackageIcon>
         
         <ContinuousIntegrationBuild Condition="'$(GITHUB_ACTIONS)' == 'true'">True</ContinuousIntegrationBuild>
     </PropertyGroup>
 
     <ItemGroup>
+        <None Include="$(MSBuildThisFileDirectory)icon.png" Pack="true" PackagePath="\" />
         <None Include="$(MSBuildThisFileDirectory)README.md" Pack="true" PackagePath="\" />
         <EmbeddedResource Include="$(MSBuildThisFileDirectory)LICENSE" />
     </ItemGroup>
