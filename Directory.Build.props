@@ -10,6 +10,7 @@
         <RepositoryUrl>https://github.com/retroandchill/MagicArchive</RepositoryUrl>
         <PackageProjectUrl>https://github.com/retroandchill/MagicArchive</PackageProjectUrl>
         <RepositoryType>Git</RepositoryType>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageIcon>icon.png</PackageIcon>
         
         <ContinuousIntegrationBuild Condition="'$(GITHUB_ACTIONS)' == 'true'">True</ContinuousIntegrationBuild>
