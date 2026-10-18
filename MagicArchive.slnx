@@ -1,13 +1,13 @@
 ﻿<Solution>
     <Folder Name="/benchmarks/">
-        <Project Path="benchmarks/MagicArchive.Benchmark/MagicArchive.Benchmark.csproj"/>
+        <Project Path="benchmarks/MagicArchive.Benchmark/MagicArchive.Benchmark.csproj" />
     </Folder>
     <Folder Name="/src/">
-        <Project Path="src/MagicArchive/MagicArchive.csproj"/>
-        <Project Path="src/MagicArchive.SourceGenerator/MagicArchive.SourceGenerator.csproj"/>
+        <Project Path="src/MagicArchive.Core/MagicArchive.Core.csproj" />
+        <Project Path="src/MagicArchive.SourceGenerator/MagicArchive.SourceGenerator.csproj" />
     </Folder>
     <Folder Name="/test/">
-        <Project Path="test/MagicArchive.Test/MagicArchive.Test.csproj"/>
-        <Project Path="test/MagicArchive.SourceGenerator.Test/MagicArchive.SourceGenerator.Test.csproj"/>
+        <Project Path="test/MagicArchive.Test/MagicArchive.Test.csproj" />
+        <Project Path="test/MagicArchive.SourceGenerator.Test/MagicArchive.SourceGenerator.Test.csproj" />
     </Folder>
 </Solution>

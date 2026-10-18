@@ -27,7 +27,7 @@
         <Using Include="NUnit.Framework" />
     </ItemGroup>
     <ItemGroup>
-      <ProjectReference Include="..\..\src\MagicArchive\MagicArchive.csproj" />
+      <ProjectReference Include="..\..\src\MagicArchive.Core\MagicArchive.Core.csproj" />
         <ProjectReference Include="..\..\src\MagicArchive.SourceGenerator\MagicArchive.SourceGenerator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
     </ItemGroup>
 

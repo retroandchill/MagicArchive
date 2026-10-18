@@ -8,6 +8,7 @@
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         <Configurations>Debug;Release;DebugGame;Packaged</Configurations>
         <Platforms>AnyCPU</Platforms>
+        <RootNamespace>MagicArchive</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>

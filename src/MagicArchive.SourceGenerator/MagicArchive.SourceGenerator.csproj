@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
-        <IsPackable>false</IsPackable>
+        <IsPackable>true</IsPackable>
         <Nullable>enable</Nullable>
         <LangVersion>latest</LangVersion>
         <ImplicitUsings>true</ImplicitUsings>
@@ -60,7 +60,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Compile Include="..\MagicArchive\Attributes.cs">
+      <Compile Include="..\MagicArchive.Core\Attributes.cs">
         <Link>Attributes.cs</Link>
       </Compile>
     </ItemGroup>
