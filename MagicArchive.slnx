@@ -5,6 +5,7 @@
     <Folder Name="/src/">
         <Project Path="src/MagicArchive.Core/MagicArchive.Core.csproj" />
         <Project Path="src/MagicArchive.SourceGenerator/MagicArchive.SourceGenerator.csproj" />
+        <Project Path="src/MagicArchive/MagicArchive.csproj" />
     </Folder>
     <Folder Name="/test/">
         <Project Path="test/MagicArchive.Test/MagicArchive.Test.csproj" />
