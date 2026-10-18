@@ -18,6 +18,7 @@
         <DevelopmentDependency>true</DevelopmentDependency>
         <IncludeSymbols>false</IncludeSymbols>
         <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
+        <TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);PackBuildOutputs</TargetsForTfmSpecificContentInPackage>
     </PropertyGroup>
 
     <ItemGroup>
@@ -58,7 +59,7 @@
     <ItemGroup>
         <None
                 Include="$(PKGHandlebars_Net)\lib\netstandard2.0\Handlebars.dll"
-                Pack="true"
+                Pack="false"
                 PackagePath="analyzers/roslyn$(ROSLYN_VERSION)/dotnet/cs"
                 Visible="false"
         />
@@ -73,5 +74,13 @@
         <Link>Attributes.cs</Link>
       </Compile>
     </ItemGroup>
+
+    <!-- for nuget publish -->
+    <Target Name="PackBuildOutputs" DependsOnTargets="SatelliteDllsProjectOutputGroup;DebugSymbolsProjectOutputGroup">
+        <ItemGroup>
+            <TfmSpecificPackageFile Include="$(TargetDir)\*.dll" PackagePath="analyzers\dotnet\cs" />
+            <TfmSpecificPackageFile Include="@(SatelliteDllsProjectOutputGroupOutput->'%(FinalOutputPath)')" PackagePath="analyzers\dotnet\cs\%(SatelliteDllsProjectOutputGroupOutput.Culture)\" />
+        </ItemGroup>
+    </Target>
 
 </Project>
