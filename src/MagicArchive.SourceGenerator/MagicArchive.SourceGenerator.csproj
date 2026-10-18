@@ -13,6 +13,11 @@
         <DefineConstants>MAGIC_ARCHIVE_GENERATOR;$(DefineConstants)</DefineConstants>
 
         <PackageReadmeFile>README.md</PackageReadmeFile>
+
+        <IncludeBuildOutput>false</IncludeBuildOutput>
+        <DevelopmentDependency>true</DevelopmentDependency>
+        <IncludeSymbols>false</IncludeSymbols>
+        <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
     </PropertyGroup>
 
     <ItemGroup>
