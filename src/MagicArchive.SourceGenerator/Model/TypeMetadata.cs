@@ -178,7 +178,11 @@ public class TypeMetadata
                 switch (ctorsWithAttribute.Length)
                 {
                     case 0:
-                        _ctorInvalid = DiagnosticDescriptors.MultipleCtorWithoutAttribute;
+                        if (!_reference.KnownTypes.GetBlittableTypeInfo(symbol).IsBlittable)
+                        {
+                            _ctorInvalid = DiagnosticDescriptors.MultipleCtorWithoutAttribute;
+                        }
+
                         return null;
                     case 1:
                         return ctorsWithAttribute[0];
@@ -374,7 +378,7 @@ public class TypeMetadata
 
         foreach (var item in Members)
         {
-            if (item.IsField && ((IFieldSymbol)item.Symbol).IsReadOnly && !item.IsConstructorParameter)
+            if (item.IsField && ((IFieldSymbol)item.Symbol).IsReadOnly && !item.IsConstructorParameter && !IsBlittable)
             {
                 context.ReportDiagnostic(
                     Diagnostic.Create(

@@ -552,16 +552,16 @@ public sealed class ReferenceSymbols
                             SetMethod: not null
                         } propertySymbol:
                         {
-                            var propertySyntax =
-                                propertySymbol.DeclaringSyntaxReferences.FirstOrDefault()?.GetSyntax()
-                                as PropertyDeclarationSyntax;
-                            var hasBackingField = propertySyntax?.HasBackingField() ?? false;
+                            var declaringSyntax =
+                                propertySymbol.DeclaringSyntaxReferences.FirstOrDefault()?.GetSyntax();
+                            var propertySyntax = declaringSyntax as PropertyDeclarationSyntax;
+                            var hasBackingField = propertySyntax?.HasBackingField() ?? (symbol.IsRecord && declaringSyntax is ParameterSyntax);
                             if (
-                                propertySymbol.DeclaredAccessibility != Accessibility.Public
-                                    && !propertySymbol.HasAttribute<ArchiveIncludeAttribute>()
-                                || propertySymbol.GetMethod.DeclaredAccessibility == Accessibility.Public
-                                    && propertySymbol.HasAttribute<ArchiveIgnoreAttribute>()
-                                || !hasBackingField
+                                (propertySymbol.DeclaredAccessibility != Accessibility.Public
+                                 && !propertySymbol.HasAttribute<ArchiveIncludeAttribute>()
+                                 || propertySymbol.GetMethod.DeclaredAccessibility == Accessibility.Public
+                                 && !propertySymbol.HasAttribute<ArchiveIgnoreAttribute>())
+                                && !hasBackingField
                             )
                                 return BlittableTypeInfo.NotBlittable;
                             break;
