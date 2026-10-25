@@ -61,3 +61,9 @@ public partial class StandardTypeTwo
         public StandardTypeOne[]? One { get; set; }
     }
 }
+
+[Archivable]
+public partial class StandardTypeThree
+{
+    public int? One { get; set; }
+}

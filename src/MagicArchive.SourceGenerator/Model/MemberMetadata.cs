@@ -364,7 +364,7 @@ public class MemberMetadata
             case MemberKind.Archivable:
                 return $"{pre}__{Name}__ = reader.ReadArchivable<{MemberType.ToDisplayString(SymbolDisplayFormat.FullyQualifiedFormat)}>();";
             case MemberKind.Nullable:
-                return $"{pre}reader.ReadNullable(ref __{Name}__);";
+                return $"{pre}__{Name}__ = reader.ReadNullable<{GetNullableTypeName()}>();";
             case MemberKind.Blittable:
             case MemberKind.Enum:
                 return $"{pre}reader.ReadBlittable(out __{Name}__);";
@@ -388,6 +388,12 @@ public class MemberMetadata
         }
     }
 
+    private string GetNullableTypeName()
+    {
+        return (MemberType as INamedTypeSymbol)!.TypeArguments[0]
+            .ToDisplayString(SymbolDisplayFormat.FullyQualifiedFormat);
+    }
+
     public string EmitRefDeserialize(int i)
     {
         switch (Kind)
@@ -400,7 +406,7 @@ public class MemberMetadata
             case MemberKind.Enum:
                 return $"reader.ReadBlittable<{MemberType.FullyQualifiedToString()}>(out __{Name}__)";
             case MemberKind.Nullable:
-                return $"reader.ReadNullable(ref __{Name}__)";
+                return $"__{Name}__ = reader.ReadNullable<{GetNullableTypeName()}>()";
             case MemberKind.String:
                 return $"__{Name}__ = reader.ReadString()";
             case MemberKind.Array:
