@@ -594,13 +594,6 @@ public ref partial struct ArchiveReader : IDisposable
 
         return ReadValue<T>();
     }
-    
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public void ReadNullable<T>(ref T? value)
-        where T : struct
-    {
-        value = ReadNullable<T>();
-    }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public T?[]? ReadArray<T>()
