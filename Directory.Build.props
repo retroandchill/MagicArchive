@@ -4,7 +4,7 @@
         
         <PackageTags>serializer</PackageTags>
         <Description>High-performance .NET serialization library.</Description>
-        <Version>0.1.0</Version>
+        <Version>0.1.1-rc.0</Version>
         <Authors>Retro &amp; Chill</Authors>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <RepositoryUrl>https://github.com/retroandchill/MagicArchive</RepositoryUrl>

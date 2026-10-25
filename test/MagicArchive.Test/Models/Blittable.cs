@@ -42,6 +42,83 @@ public partial struct BlittableStruct4
 }
 
 [Archivable]
+public readonly partial record struct BlittableStruct5(uint Id);
+
+public enum TokenType : uint
+{
+    Assembly = 0x00000000,
+    AssemblyRef = 0x01000000,
+    TypeRef = 0x02000000,
+    TypeDef = 0x03000000,
+    Variable = 0x04000000,
+    Function = 0x05000000,
+    Parameter = 0x06000000,
+
+    String = 0x70000000,
+}
+
+[Archivable]
+public readonly partial record struct MetadataToken
+{
+    [ArchiveInclude]
+    private readonly uint _value;
+    private const uint IdMask = 0x00ffffff;
+    private const uint TypeMask = 0xff000000;
+
+    [ArchiveIgnore]
+    public uint Id
+    {
+        get => _value & IdMask;
+        init
+        {
+            ArgumentOutOfRangeException.ThrowIfGreaterThan(value, IdMask);
+            _value = (uint)Type | value;
+        }
+    }
+
+    [ArchiveIgnore]
+    public TokenType Type
+    {
+        get => (TokenType)(_value & TypeMask);
+        init => _value = (uint)value | Id;
+    }
+
+    public static readonly MetadataToken Invalid = new(0U);
+
+    public MetadataToken(uint value)
+    {
+        _value = value;
+    }
+
+    public MetadataToken(TokenType type)
+    {
+        _value = (uint)type;
+    }
+
+    public MetadataToken(TokenType type, uint id)
+    {
+        _value = (uint)type | id;
+    }
+
+    public uint ToUInt32() => _value;
+
+    public bool Equals(MetadataToken other)
+    {
+        return _value == other._value;
+    }
+
+    public override int GetHashCode()
+    {
+        return _value.GetHashCode();
+    }
+
+    public override string ToString()
+    {
+        return $"[{Type}:0x{Id:X4}]";
+    }
+}
+
+[Archivable]
 public partial struct NonBlittableStruct
 {
     public int MyProperty1 { get; set; }
