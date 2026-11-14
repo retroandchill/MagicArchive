@@ -661,7 +661,7 @@ public ref partial struct ArchiveReader : IDisposable
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public bool TryReadInto<T>(Span<T?> buffer, out int length)
+    public bool TryReadInto<T>(scoped Span<T?> buffer, out int length)
     {
         if (!TryPeekCollectionHeader(out length) || length == 0)
         {
